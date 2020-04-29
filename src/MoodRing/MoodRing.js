@@ -1,4 +1,5 @@
 import React from 'react';
+import MoodList from '../MoodList/MoodList'
 
 class MoodRing extends React.Component{
     // lets us share info throughout the Component
@@ -11,7 +12,7 @@ class MoodRing extends React.Component{
     } // end state
     // run when the component is ready (kinda like document ready, but just for this component, not the whole page)
     componentDidMount(){
-        console.log( 'MoodRing mounted. Mood at component did mount:', this.state.currentMood.mood, this.state.currentMood.color );
+        console.log( 'MoodRing mounted.' );
     } // end func
     // run when the user changes a property
     handleChangeFor = ( event, property )=>{
@@ -46,7 +47,7 @@ class MoodRing extends React.Component{
                 <ul>
                     { this.state.savedMoods.map( ( item )=> <li key={item.mood}>{ item.mood }: { item.color }</li> ) }
                 </ul>
-                <p>{ JSON.stringify( this.state ) }</p>
+                <MoodList listOfMoods={ this.state.savedMoods }/>
             </div>
         ); //end return JSX
     } // end render
